@@ -1949,7 +1949,10 @@
 
       decoder->psnames = psnames;
     }
-
+    if (!size)
+    {
+        return FT_ERR( Invalid_Argument );
+    }
     t1_builder_init( &decoder->builder, face, size, slot, hinting );
 
     /* decoder->buildchar and decoder->len_buildchar have to be  */

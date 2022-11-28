@@ -2478,8 +2478,8 @@
               if ( ft_strcmp( (const char*)".notdef",
                               (const char*)glyph_name ) != 0 )
               {
-                if ( charcode < min_char )
-                  min_char = charcode;
+                //if ( charcode < min_char )
+                  //min_char = charcode;
                 if ( charcode >= max_char )
                   max_char = charcode + 1;
               }

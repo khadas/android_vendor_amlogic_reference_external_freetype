@@ -351,6 +351,8 @@
       FT_Short*  cur   = face->cvt;
       FT_Short*  limit = cur + face->cvt_size;
 
+       if (!cur)
+      goto Exit;
 
       for ( ; cur < limit; cur++ )
         *cur = FT_GET_SHORT();
@@ -579,6 +581,9 @@
     {
       if ( p + record_size > limit )
         break;
+
+      if ( !face )
+        goto Fail;
 
       face->hdmx_record_sizes[nn] = p[0];
       p                          += record_size;

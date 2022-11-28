@@ -193,6 +193,8 @@
         break;
       }
     }
+    if ( !kp )
+      goto Exit;
 
     /* Kerning info is stored as:             */
     /*                                        */

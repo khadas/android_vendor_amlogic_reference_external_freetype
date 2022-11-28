@@ -910,7 +910,8 @@
     FT_Error   error  = FT_Err_Ok;
     FT_UShort  glyph_sid;
 
-
+    if (!charset)
+    goto Exit;
     /* If the offset is greater than 2, we have to parse the charset */
     /* table.                                                        */
     if ( offset > 2 )

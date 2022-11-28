@@ -375,6 +375,9 @@
         goto Exit;
       }
 
+      if (!segment->correspondence)
+      goto Exit;
+
       for ( j = 0; j < segment->pairCount; j++ )
       {
         /* convert to Fixed */
@@ -1514,6 +1517,9 @@
     {
       /* long offsets (one more offset than glyphs, to mark size of last) */
       if ( FT_FRAME_ENTER( ( blend->gv_glyphcnt + 1 ) * 4L ) )
+        goto Exit;
+
+      if ( !blend->glyphoffsets )
         goto Exit;
 
       for ( i = 0; i <= blend->gv_glyphcnt; i++ )
@@ -3643,6 +3649,11 @@
                 tupleCount & GX_TC_TUPLE_COUNT_MASK,
                 ( tupleCount & GX_TC_TUPLE_COUNT_MASK ) == 1 ? "" : "s" ));
 
+    if (!points_org)
+    goto Fail2;
+
+    if ( !tuple_coords)
+    goto Fail2;
     for ( j = 0; j < n_points; j++ )
       points_org[j] = outline->points[j];
 

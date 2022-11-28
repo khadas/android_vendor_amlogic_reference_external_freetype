@@ -1089,6 +1089,9 @@
 
     for ( ; count > 0; count--, idx++ )
     {
+      if (idx >= max_objects)
+        break;
+
       FT_Byte*    q      = (FT_Byte*)objects[idx] + field->offset;
       FT_Long     val;
       FT_String*  string = NULL;
