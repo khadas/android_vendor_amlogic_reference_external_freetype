@@ -63,7 +63,9 @@ cc_library_shared {
     ],
 
     shared_libs: [
-        "libpng",
         "libz",
+    ],
+    static_libs: [
+        "libpng",
     ],
 }
